@@ -1,0 +1,29 @@
++-------------------------+-------+
+|      unique domain      |  qwt  |
++-------------------------+-------+
+| collab.sakaiproject.org | 10782 |
+|        iupui.edu        |  2241 |
+|        umich.edu        |  2104 |
+| nakamura.uits.iupui.edu |  1797 |
+|       indiana.edu       |  736  |
+|     caret.cam.ac.uk     |  667  |
+|          vt.edu         |  442  |
+|        uct.ac.za        |  408  |
+|    media.berkeley.edu   |  231  |
+|          ufp.pt         |  114  |
+|        gmail.com        |  100  |
+|       txstate.edu       |   70  |
+|      et.gatech.edu      |   68  |
+|       whitman.edu       |   68  |
+|          bu.edu         |   60  |
+|     lancaster.ac.uk     |   57  |
+|       stanford.edu      |   54  |
+|          loi.nl         |   45  |
+|        rsmart.com       |   39  |
+|        unicon.net       |   36  |
+|         asu.edu         |   7   |
+|       utoronto.ca       |   5   |
+|       ucdavis.edu       |   4   |
+|         fhda.edu        |   4   |
+|       berkeley.edu      |   1   |
++-------------------------+-------+
