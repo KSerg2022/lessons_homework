@@ -1,5 +1,5 @@
 """Encoding / decoding caesar cipher."""
-
+from string import punctuation, digits, ascii_lowercase
 
 def get_user_language() -> str:
     """User selects the language for the text."""
@@ -14,7 +14,7 @@ def get_user_language() -> str:
         elif user_language_choice == '2':
             return UK_LANG
         else:
-            print(f'Your choice may be 1 or 2. Bye.')
+            print(f'Your choice may be 1 or 2.')
 
 
 def get_coding_status() -> bool:
@@ -30,15 +30,15 @@ def get_coding_status() -> bool:
         elif user_coding_choice == '2':
             return False
         else:
-            print(f'Your choice may be 1 or 2. Bye.')
+            print(f'Your choice may be 1 or 2.')
 
 
-def get_displacement_step(language) -> str:
+def get_displacement_step(language: str) -> str:
     """User selects displacement step for coding."""
     while True:
         displacement_step = input(f'Enter step for encoding / decoding. It integer from 1 to {len(language)}: ')
         if int(displacement_step) < 1 or int(displacement_step) > len(language):
-            print(f'Your choice may be from 1 to {len(language)}. Bye.')
+            print(f'Your choice may be from 1 to {len(language)}.')
         else:
             return displacement_step
 
@@ -52,10 +52,10 @@ def get_check_data(user_language: str, user_coding: bool, displacement_step: str
               f'Displacement step - {displacement_step},\n'
               f'Encoding (True) / decoding (False) - {user_coding}.')
         check_data = input("Your data is correct? Enter 'y'/'n': ")
-        if check_data == 'y' or check_data == 'n':
+        if check_data in ('y', 'n', 'н', 'т'):
             return check_data
         else:
-            print("You must enter in english 'y'/'n'.")
+            print("You must enter 'y'/'n'.")
 
 
 def get_date_for_coding(language: str, step: str) -> dict[str: str]:
@@ -90,8 +90,11 @@ def main():
         user_text = input('Enter text for encoding / decoding: ')
         displacement_step = get_displacement_step(user_language)
 
+        user_language = user_language + user_language.upper() + ' ' + punctuation + digits
+        print(user_language)
         check_data = get_check_data(user_language, user_coding, displacement_step, user_text)
-        if check_data == 'y':
+
+        if check_data in ('y', 'н'):
             date_for_coding, reverse_date_for_coding = get_date_for_coding(user_language, displacement_step)
             if user_coding:
                 encoded_text = get_coded_text(user_text, date_for_coding, user_language)
@@ -101,14 +104,20 @@ def main():
                 print(f'Your decoded text - "{decoded_text}".')
 
         want_continue = input("\nIf you want to continue press - 'Enter'.\n"
-                              "If you want to stop press - 'q'.")
-        if want_continue == 'q':
+                              "If you want to stop press - 'q'.\n>>>")
+        if want_continue in ('q', 'й'):
             print('Bye!')
             exit()
 
 
-EN_LANG = 'abcdefghijklmnopqrstuvwxyz'
+EN_LANG = ascii_lowercase
 UK_LANG = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя'
 
 if __name__ == '__main__':
     main()
+
+# Hello world!, 3
+# Khoor zruog!, 3
+
+# Україна понад усе!, 3
+# Цнуглрг тсргж цфз!, 3
