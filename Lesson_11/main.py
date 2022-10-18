@@ -91,7 +91,6 @@ def main():
         displacement_step = get_displacement_step(user_language)
 
         user_language = user_language + user_language.upper() + ' ' + punctuation + digits
-        print(user_language)
         check_data = get_check_data(user_language, user_coding, displacement_step, user_text)
 
         if check_data in ('y', 'н'):
