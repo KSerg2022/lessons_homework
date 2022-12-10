@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukraine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+{% endblock %}
+</head>
+
+
+<body>
+<div class="main">
+
+    <!-- Main content -->
+    {% block content %}{% endblock %}
+
+
+    <!-- Sitebar -->
+    {% block aside %}
+    <aside class="sitebar">
+        <img src="/static/img/TR.png" class="foto_sitebar" alt="User photo">
+        <!-- City -->
+        <div class="Cities_Ukraine">
+                <a href="{{ url_for('index') }}" class="city_link"><h3 class="sitebar_title">Міста України</h3></a>
+            <ul class="soft_skills_list">
+
+                {% for city in cities %}
+                <li>
+                    <a href="{{ url_for('cities', city=city) }}" class="city_link">
+                    <span class="text_list">
+                        {{ city|capitalize }}
+                    </span></a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </aside>
+    {% endblock %}
+
+
+</body>
+</html>

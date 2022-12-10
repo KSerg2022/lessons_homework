@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+<!-- Main content -->
+{% block content %}
+<div class="main_content">
+    <h1 class="title">{{ name.capitalize() }}: {{slogan.capitalize() }}!!!</h1>
+    <div>
+        <img src="/static/img/{{city}}" class="foto" alt="User photo">
+    </div>
+</div>
+{% endblock %}
