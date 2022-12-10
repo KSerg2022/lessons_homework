@@ -1,0 +1,40 @@
+{% extends '_base.html' %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock title %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>All registered users</h1>
+    </div>
+
+{% include 'message.html' %}
+
+<table border=2 class="table table-striped">
+    <caption>Use "ID" for change user's data.</caption>
+  <thead>
+    <tr>
+      <th scope="col" class="warning">№</th>
+      <th scope="col" class="warning">ID</th>
+      <th scope="col" class="warning">NAME</th>
+      <th scope="col" class="warning" colspan="2">EMAIL</th>
+      </tr>
+  </thead>
+  <tbody>
+{% for user in users %}
+    <tr>
+    <td>{{ loop.index }}</td>
+    <td><a href="{{ url_for('main.update', user_id=user.id)  }}">{{ user.id }}</a></td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td><a href="{{ url_for('main.delete', user_id=user.id) }}">delete</a></td>
+    </tr>
+  </tbody>
+{% endfor %}
+
+</table>
+
+
+{% endblock page_content %}
