@@ -1,0 +1,33 @@
+{% extends 'weather/_base_weather.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+
+{% block page_content %}
+
+<div class="page-header">
+  <h1>Welcome to the application Weather.</h1>
+</div>
+{% include 'messages.html' %}
+
+{% if  img %}
+<img src="/static/img/{{ img }}.png" alt="{{ img.capitalize() }}" height="100">
+{% else %}
+
+{% endif %}
+
+<form action="{{ url_for('weather.index') }}" method="POST">
+    {{ form.csrf_token }}
+    {{ wtf.form_field(form.city) }}
+    {{ wtf.form_field(form.submit) }}
+</form>
+
+<hr>
+
+<p>The local date and time is {{ moment(current_time).format('MMMM Do YYYY, H:mm:ss') }}.</p>
+<p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+
+{% endblock page_content %}

@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock title %}
+
+{% block menuline %}
+    {{ super() }}
+    <ul class="nav navbar-nav">
+        <li class="navbar-brand">|</li>
+        <li class="navbar-brand">Users:</li>
+        <li><a class='action' href="{{ url_for('main.index') }}">Home</a></li>
+        <li><a class='action' href="{{ url_for('main.add_email') }}">Add user</a></li>
+        <li><a class='action' href="{{ url_for('main.show_emails') }}">Show users</a></li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
