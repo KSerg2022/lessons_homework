@@ -5,6 +5,8 @@ __pycache__/
 
 # my settins
 .idea
+.flaskenv
+.coverage
 
 # C extensions
 *.so
