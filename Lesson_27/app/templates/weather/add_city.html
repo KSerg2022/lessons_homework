@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+
+{% block page_content %}
+
+<div class="page-header">
+  <h1>Please add city.</h1>
+</div>
+{% include 'messages.html' %}
+
+<form action="{{ url_for('weather.add_city') }}" method="POST">
+    {{ form.csrf_token }}
+    {{ wtf.form_field(form.country) }}
+    {{ wtf.form_field(form.city) }}
+    {{ wtf.form_field(form.submit) }}
+</form>
+
+<hr>
+
+{% endblock page_content %}
