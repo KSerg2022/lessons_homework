@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">The best site!</h1>
+                <h2 class="display-3">You are will be happy here!</h2>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'blog:posts' %}" role="button">See all posts &raquo;</a></p>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

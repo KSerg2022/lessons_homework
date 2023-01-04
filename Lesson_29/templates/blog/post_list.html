@@ -1,0 +1,37 @@
+{% extends '_base.html' %}
+
+{% block title %} Post list {% endblock %}
+
+{% block content %}
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-2 text-center">Posts.</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                {% if post_list %}
+                   {% for post in post_list %}
+                        <div class="col-md-4">
+                            <h2><a href="{{ post.get_absolute_url }}">
+                                {{ post.title|truncatewords:2|linebreaks }}</a>
+                            </h2>
+                            <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+                            <p>
+                                <a class="btn btn-secondary" href="{{ post.get_absolute_url }}" role="button">
+                                View details &raquo;</a>
+                            </p>
+                        </div>
+                  {% endfor %}
+
+                  {% else %}
+                  <p>В базе данных нет книг</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
