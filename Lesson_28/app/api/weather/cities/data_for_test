@@ -1,0 +1,35 @@
+POST
+[]
+
+[
+{"name": "kiev"}
+]
+
+[
+{"name": "kiev"},
+{"name": "Bon"},
+{"name": "kie"},
+{"name": "Bon"},
+{"name": "lviv"},
+{"name": "kiev"}
+]
+
+
+
+
+
+PUT
+[
+{"id": 2, "name": "kiev"}
+]
+
+
+[
+    {"id": 2, "name": "kiev"},
+    {"id": 3, "name": "bon"},
+    {"id": 4, "name": "lviv"},
+    {"id": 9, "name": "rome"},
+    {"name": "rome"},
+    {"id": 5, "name": "rome"},
+    {"id": 55, "name": "Kampala"}
+]

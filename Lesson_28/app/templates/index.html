@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+
+{% block page_content %}
+    {% if name %}
+      <h1 class="page-header">
+        Welcome, {{ name.capitalize() }}!
+      </h1>
+    {% else %}
+      <h1 class="page-header">
+        Welcome, Stranger!
+      </h1>
+    {% endif%}
+
+<div class="page-header">
+  <h2>Welcome to the web application.</h2>
+</div>
+
+{% include 'messages.html' %}
+
+<p>The local date and time is {{ moment(current_time).format('MMMM Do YYYY, H:mm:ss') }}.</p>
+<p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+
+
+{% endblock page_content %}

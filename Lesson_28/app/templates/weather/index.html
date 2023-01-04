@@ -1,0 +1,72 @@
+{% extends '_base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+
+{% block page_content %}
+
+<div class="page-header">
+  <h1>Welcome to the application Weather.</h1>
+</div>
+{% include 'messages.html' %}
+
+{% if  weather %}
+<form action="{{ url_for('weather.add_city') }}" method="post" id="userForm">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <input type="hidden" name="city" value="{{ weather.city_name }}"/>
+    <input type="hidden" name="country" value="{{ weather.country_code }}"/>
+    <button type="submit" class="btn btn-primary">Add city</button>
+</form>
+
+    <table class="table table-hover table-striped" id="userTable">
+        <caption>
+        </caption>
+        <thead>
+        <tr>
+            <th scope="col" class="text-center">City</th>
+            <th scope="col" class="text-center">Country</th>
+            <th scope="col" class="text-center">latitude</th>
+            <th scope="col" class="text-center">longitude</th>
+            <th scope="col" class="text-center">sky</th>
+            <th scope="col" class="text-center">temperature</th>
+            <th scope="col" class="text-center">wind_speed</th>
+            <th scope="col" class="text-center">img</th>
+        </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center"><a href="https://www.google.com/maps/place/{{ weather.city_name }}/
+                @{{ weather.latitude }},{{ weather.longitude }}" target="_blank" rel="noopener noreferrer nofollow">
+                    {{ weather.city_name }}</a></td>
+                <td class="text-center">{{ weather.country_name }}</td>
+                <td class="text-center">{{ weather.latitude }}</td>
+                <td class="text-center">{{ weather.longitude }}</td>
+                <td class="text-center">{{ weather.sky }}</td>
+                <td class="text-center">{{ weather.temperature }}</td>
+                <td class="text-center">{{ weather.wind_speed }}</td>
+                <td class="warning text-center text-center"><img src="{{ weather.icon_url }}" alt="{{ weather.icon_url }}" width="40"></td>
+            </tr>
+        </tbody>
+    </table>
+
+{% else %}
+{% endif %}
+
+
+
+<form action="{{ url_for('weather.index') }}" method="POST" id="form">
+    {{ form.csrf_token }}
+    {{ wtf.form_field(form.city) }}
+    {{ wtf.form_field(form.submit, form='form') }}
+</form>
+
+<hr>
+
+<p>The local date and time is {{ moment(current_time).format('MMMM Do YYYY, H:mm:ss') }}.</p>
+<p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+
+{% endblock page_content %}

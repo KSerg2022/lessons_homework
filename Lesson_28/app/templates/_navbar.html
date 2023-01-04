@@ -1,0 +1,75 @@
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container" style="display: inline-block">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+                data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('main.start') }}">Web app</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+
+
+            {% block menuline %}
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown font">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                              Test Users <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li role="separator" class="divider"></li>
+                              <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="{{ url_for('main.add_email') }}">Add user</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="{{ url_for('main.show_emails') }}">Show users</a></li>
+                          </ul>
+                        </li>
+                    </ul>
+
+
+                  <ul class="nav navbar-nav">
+                    <li class="dropdown font">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          Users <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                          <li role="separator" class="divider"></li>
+                          <li><a href="{{ url_for('main.show_emails') }}">Show users</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          Weather <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="{{ url_for('weather.index') }}">Search city</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="{{ url_for('weather.show_cities') }}">Show cities</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="{{ url_for('weather.show_capitals') }}">Capitals</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+            {% endblock %}
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if not current_user.is_authenticated %}
+                        <li><a class='action' href="{{ url_for('auth.login') }}">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                            Login</a></li>
+                        <li><a class='action' href="{{ url_for('auth.signup') }}">
+                            <span class="glyphicon glyphicon-user"></span>
+                            Sign up</a></li>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                        <li><a class='action' href="{{ url_for('auth.logout') }}">Logout</a></li>
+                    {% endif %}
+                </ul>
+        </div>
+    </div>
+</div>

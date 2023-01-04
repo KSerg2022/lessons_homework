@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+  {{ title }}
+{% endblock title %}
+
+{% block page_content %}
+<div class="page-header" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+        <h1>Edit your data.</h1>
+    </div>
+
+    {% include 'messages.html' %}
+
+    <form action="edit/{{ user.id }}" method="POST">
+        {{ form.csrf_token }}
+        {{ wtf.form_field(form.name, value=user.name) }}
+        {{ wtf.form_field(form.email, value=user.email) }}
+        {{ wtf.form_field(form.submit) }}
+    </form>
+{% endblock page_content %}

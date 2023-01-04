@@ -1,0 +1,74 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style_footer.css') }}" rel="stylesheet">
+
+<!--<div class="search-text">-->
+<!--   <div class="container">-->
+<!--        <div class="row text-center">-->
+<!--            <div class="form">-->
+<!--                <form id="search-form" class="form-search form-horizontal">-->
+<!--                    <input type="text" class="input-search" placeholder="Search">-->
+<!--                    <button type="submit" class="btn-search">Search</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--   </div>-->
+<!--</div>-->
+
+<footer>
+    <div class="container">
+        <div class="row text-center">
+             <div class="col-md-6 col-sm-6 col-xs-12">
+              <ul class="list-inline">
+                   <li>
+                        <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+                   </li>
+                   <li>
+                        <a href="#"><i class="fa fa-dropbox fa-2x"></i></a>
+                   </li>
+                   <li>
+                        <a href="#"><i class="fa fa-flickr fa-2x"></i></a>
+                   </li>
+                   <li>
+                        <a href="#"><i class="fa fa-github fa-2x"></i></a>
+                   </li>
+                   <li>
+                        <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
+                   </li>
+                   <li>
+                        <a href="#"><i class="fa fa-tumblr fa-2x"></i></a>
+                   </li>
+                   <li>
+                        <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+                  </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <ul class="menu list-inline">
+                    <li>
+                        <a class='action' href="{{ url_for('main.start') }}">Web app</a>
+                    </li>
+                    <li>
+                         <a class='action' href="{{ url_for('main.index') }}">Users</a>
+                    </li>
+                    <li>
+                        <a class='action' href="{{ url_for('weather.index') }}">Weather</a>
+                    </li>
+                </ul>
+            </div>
+       </div>
+    </div>
+</footer>
+
+<div class="copyright">
+ <div class="container">
+     <div class="row text-center">
+     	<p>Copyright © <span id="year"></span> All rights reserved</p>
+     </div>
+    </div>
+</div>

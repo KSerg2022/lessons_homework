@@ -1,0 +1,34 @@
+post
+[
+    {"name": "kiev"}
+]
+
+[
+    {"name": "bon"}
+]
+
+
+
+[
+    {"name": }
+]
+
+[
+    {"name": "kiev"},
+    {"name": "bon"},
+    {"name": "lviv"},
+    {"name": "rome"}
+]
+
+
+put
+[
+    {"id": 2, "name": "kiev"},
+    {"id": 3, "name": "bon"},
+    {"id": 4, "name": "lviv"},
+    {"id": 9, "name": "rome"},
+    {"name": "rome"},
+    {"id": 5, "name": "rome"},
+    {"id": 15, "name": "Kampala"},
+    {"id": 17, "name": "kiev"}
+]

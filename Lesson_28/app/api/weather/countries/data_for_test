@@ -1,0 +1,53 @@
+POST
+{
+    "name": "Ukraine"
+}
+
+[
+    {
+        "name": "Ukraine"
+    },
+    {
+        "name": "Poland"
+    },
+    {
+        "name": "Germany"
+    }
+]
+
+
+PUT
+{
+    "name": "Ukraine"
+}
+
+[
+    {
+        "id": 1,
+        "name": "Ukraine"
+    },
+    {
+        "id": 2,
+        "name": "Poland"
+    },
+    {
+        "name": "Germany"
+    },
+        {
+        "id": 300,
+        "name": "Poland"
+    },
+    {
+        "id": 3,
+        "name": "Germany"
+    },
+    {
+        "id": 102,
+        "name": "Poland"
+    },
+]
+
+delete
+233
+83
+177

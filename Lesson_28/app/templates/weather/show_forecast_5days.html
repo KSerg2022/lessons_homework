@@ -1,0 +1,56 @@
+{% extends '_base.html' %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+
+{% block page_content %}
+
+<div class="page-header">
+  <h1>{{ title }}</h1>
+</div>
+{% include 'messages.html' %}
+
+
+<div class="table-responsive">
+        {% include '_go_back.html' %}
+
+    <table class="table table-hover table-striped">
+            <caption style="font-size: 16px;">Below is the weather forecast for five days for the city of {{ city_name }}
+            from the country {{ country_name }}.</caption>
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">img</th>
+                <th scope="col" class="text-center">Data</th>
+                <th scope="col" class="text-center">Time</th>
+                <th scope="col" class="text-center">Temperature</th>
+                <th scope="col" class="text-center">Description</th>
+                <th scope="col" class="text-center">Clouds</th>
+                <th scope="col" class="text-center">Wind_speed</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date, weather in forecast.items() %}
+                    {% for data in weather %}
+                        <tr>
+                            <td class="warning text-center"><img src="{{ data.icon_url }}" alt="" width="40"></td>
+                            <td class="text-center" rowspan="">{{ date }}</td>
+                            <td class="text-center">{{ data.time }}</td>
+                            <td class="text-center">{{ data.temperature }}</td>
+                            <td class="text-center">{{ data.description }}</td>
+                            <td class="text-center">{{ data.clouds }}</td>
+                            <td class="text-center">{{ data.wind_speed }}</td>
+                         </tr>
+                {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <form>
+        <input class="btn btn-success" type="button" value="Go back!" onclick="history.back()">
+    </form>
+</div>
+
+{% endblock page_content %}
