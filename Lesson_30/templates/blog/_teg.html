@@ -1,0 +1,10 @@
+                            {% if post.teg.all %}
+                                <ul class="list-group list-group-horizontal">
+                                    {% for teg in post.teg.all %}
+                                        <li class="list-group">
+                                            <a href="{% url 'blog:post_list_for_teg' teg %}" class='text-dark'>
+                                                {{ teg }}</a>
+                                        </li><span>&emsp;</span>
+                                    {% endfor %}
+                                </ul>
+                            {%endif%}
